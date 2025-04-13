@@ -28,7 +28,7 @@ export const TodoList = () => {
 
   return (
     <div>
-      <form className=" flex gap-2 mt-10">
+      <form onSubmit={(e) => e.preventDefault()} className=" flex gap-2 mt-10">
         <input
           className="py-2 border-[1px] rounded-md px-2 bg-gray-500"
           value={text}
