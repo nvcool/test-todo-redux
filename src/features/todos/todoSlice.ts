@@ -10,8 +10,20 @@ interface TodoState {
   items: Todo[];
 }
 
+const localStorageFun = () => {
+  try {
+    const data = localStorage.getItem("todos");
+    if (data) {
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error("Error, ", error);
+  }
+  return [];
+};
+
 const initialState: TodoState = {
-  items: [],
+  items: localStorageFun(),
 };
 
 const todoSlice = createSlice({
